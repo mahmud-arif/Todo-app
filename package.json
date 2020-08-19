@@ -7,9 +7,11 @@
   "dependencies": {
     "@material-ui/core": "4.4.3",
     "@material-ui/icons": "4.4.3",
+    "array-move": "3.0.1",
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-scripts": "3.0.1",
+    "react-sortable-hoc": "1.11.0",
     "uuid": "3.3.3"
   },
   "devDependencies": {

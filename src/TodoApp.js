@@ -7,6 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import TodoList from "./TodoList";
 import TodoForm from "./TodoFrom";
 import useTodoState from "./Hooks/useTodoState";
+import arrayMove from "array-move";
 
 function TodoApp() {
   const initialTodos = JSON.parse(window.localStorage.getItem("todos") || "[]");
@@ -14,6 +15,10 @@ function TodoApp() {
   const { todos, addTodo, removeTodo, toggleTodo, editTodo } = useTodoState(
     initialTodos
   );
+
+  const onSortEnd = ({ oldIndex, newIndex }) => {
+    return arrayMove(todos, oldIndex, newIndex);
+  };
 
   useEffect(() => {
     window.localStorage.setItem("todos", JSON.stringify(todos));
@@ -42,6 +47,7 @@ function TodoApp() {
               removeTodo={removeTodo}
               toggleTodo={toggleTodo}
               editTodo={editTodo}
+              onSortEnd={onSortEnd}
             />
           )}
         </Grid>
